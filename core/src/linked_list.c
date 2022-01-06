@@ -60,7 +60,7 @@ string_item_t *string_item_new(const char *string)
     return item;
 }
 
-void PrintLinkedList(string_item_t *string_item)
+void print_linked_list(string_item_t *string_item)
 {
     while(string_item)
     {

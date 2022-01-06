@@ -1,5 +1,6 @@
 #include "clove.h"
 #include "linked_list.h"
+#include <stdio.h>
 
 
 CLOVE_TEST(LinkedList_appendStringItemNew)
@@ -14,7 +15,7 @@ CLOVE_TEST(LinkedList_appendStringItemNew)
     list_append((HEAD)&linked_list, (ITEM)second);
     list_append((HEAD)&linked_list, (ITEM)third);
 
-    //PrintLinkedList(linked_list);
+    //print_linked_list(linked_list);
 
     CLOVE_PTR_EQ(linked_list, first); 
     CLOVE_PTR_EQ(first->node.next, second); 
@@ -36,7 +37,7 @@ CLOVE_TEST(LinkedList_pop)
 
     list_pop((HEAD)&linked_list);
 
-    //PrintLinkedList(linked_list);
+    //print_linked_list(linked_list);
 
     CLOVE_PTR_NE(linked_list, first); 
     CLOVE_PTR_EQ(linked_list, second); 
@@ -59,7 +60,7 @@ CLOVE_TEST(LinkedList_remove)
 
     list_remove((HEAD)&linked_list, (ITEM)second);
 
-    //PrintLinkedList(linked_list);
+    //print_linked_list(linked_list);
 
     CLOVE_PTR_EQ(linked_list, first); 
     CLOVE_PTR_NE(first->node.next, second); 
@@ -82,7 +83,7 @@ CLOVE_TEST(LinkedList_reverse)
 
     list_reverse((HEAD)&linked_list);
 
-    //PrintLinkedList(third);
+    //print_linked_list(third);
 
     CLOVE_PTR_EQ(first->node.next, NULL);
     CLOVE_PTR_NE(first->node.next, second);  
@@ -93,5 +94,5 @@ CLOVE_TEST(LinkedList_reverse)
 
     //list_reverse((HEAD)&third);
 
-    //PrintLinkedList(linked_list);
+    //print_linked_list(linked_list);
 }

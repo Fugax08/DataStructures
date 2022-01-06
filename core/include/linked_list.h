@@ -22,7 +22,7 @@ list_node_t *list_get_tail(list_node_t **head);
 list_node_t *list_append(list_node_t **head, list_node_t *item);
 list_node_t *list_pop(list_node_t **head);
 
-void PrintLinkedList(string_item_t *string_item);
+void print_linked_list(string_item_t *string_item);
 string_item_t *string_item_new(const char *string);
 
 list_node_t  *list_remove(list_node_t **head,list_node_t *item);
