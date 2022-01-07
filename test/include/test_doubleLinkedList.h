@@ -186,3 +186,25 @@ CLOVE_TEST(DoubleLinkedList_itemInsertBeforeHead)
     CLOVE_PTR_EQ(fourth->node.prev, NULL);
 }
 
+CLOVE_TEST(DoubleLinkedList_shuffle)
+{
+    double_list_item_t *double_linked_list = NULL;
+    double_list_item_t *first = double_list_item_new(1);
+    double_list_item_t *second = double_list_item_new(2);
+    double_list_item_t *third = double_list_item_new(3);
+    double_list_item_t *fourth = double_list_item_new(4);
+
+    double_list_append((DHEAD)&double_linked_list, (DITEM)first);
+    double_list_append((DHEAD)&double_linked_list, (DITEM)second);
+    double_list_append((DHEAD)&double_linked_list, (DITEM)third);
+    double_list_append((DHEAD)&double_linked_list, (DITEM)fourth);
+
+    print_double_linked_list(double_linked_list);
+
+    double_list_shuffle((DHEAD)&double_linked_list);
+    
+    print_double_linked_list(double_linked_list);
+
+    CLOVE_PTR_NE(double_linked_list, first);
+}
+

@@ -26,3 +26,4 @@ double_list_item_t *double_list_item_new(int n);
 double_list_node_t *double_list_remove (double_list_node_t **head, double_list_node_t *item);
 double_list_node_t *double_list_insert_after (double_list_node_t **head, double_list_node_t *item_to_insert, double_list_node_t *item);
 double_list_node_t *double_list_insert_before (double_list_node_t **head, double_list_node_t *item_to_insert, double_list_node_t *item);
+void double_list_shuffle(double_list_node_t **head);

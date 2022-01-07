@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <time.h>
 
 double_list_node_t *double_list_get_tail(double_list_node_t **head)
 {
@@ -112,4 +113,55 @@ double_list_node_t *double_list_insert_before(double_list_node_t **head, double_
     item->prev = item_to_insert;
 
     return item;
+}
+
+void double_list_shuffle(double_list_node_t **head)
+{
+    double_list_node_t *node = *head;
+    double_list_node_t *node_next = NULL;
+    double_list_node_t *node_temp_next = NULL;
+    double_list_node_t *node_temp_prev = NULL;
+    srand(time(NULL));
+    while (node->next)
+    {
+        node_next = node->next;
+        while (node_next)
+        {
+            int x = rand() % 2;
+            if (x == 1)
+            {
+                if (node_next->next && node_next->prev)
+                {
+                    node_temp_prev = node_next->prev;
+                    node_temp_next = node_next->next;
+                    node_temp_prev->next = node_temp_next;
+                    node_temp_next->prev = node_temp_prev;
+                }
+                if (!node_next->next && node_next->prev)
+                {
+                    node_temp_prev = node_next->prev;
+                    node_temp_prev->next = NULL;
+                }
+                if (node_next->next && !node_next->prev)
+                {
+                    node_temp_next = node_next->next;
+                    node_temp_next->prev = NULL;
+                }
+                double_list_insert_before(head, node_next, node);
+                if (node->prev)
+                {
+                    node = node->prev;
+                }
+                
+                break;
+            }
+            node_next = node_next->next;
+        }
+        
+        node = node->next;
+    }
+    
+    
+
+    return;
 }
