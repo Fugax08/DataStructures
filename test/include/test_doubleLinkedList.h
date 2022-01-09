@@ -200,6 +200,7 @@ CLOVE_TEST(DoubleLinkedList_shuffle)
     double_list_append((DHEAD)&double_linked_list, (DITEM)fourth);
 
     print_double_linked_list(double_linked_list);
+    printf(" | ");
 
     double_list_shuffle((DHEAD)&double_linked_list);
     

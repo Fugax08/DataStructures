@@ -52,7 +52,12 @@ void print_double_linked_list(double_list_item_t *head)
     double_list_item_t *item = head;
     while(item)
     {
-        printf("%d\n",item->value);
+        printf("%d",item->value);
+        if (item->node.next)
+        {
+            printf("-");
+        }
+        
         item = (double_list_item_t *)item->node.next;
     }
 }
