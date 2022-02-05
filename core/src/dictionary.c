@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 
 dictionary_table_t *dictionary_table_new (const size_t hashmap_size )
 {
@@ -34,7 +35,8 @@ dictionary_node_t *dictionary_insert(dictionary_table_t *table, const char *key,
         {
             return NULL;
         }
-        table->nodes[index]->key = key;
+        table->nodes[index]->key = malloc(sizeof(char));
+        strncpy(table->nodes[index]->key, key ,key_len);
         table->nodes[index]->key_len = key_len;
         table->nodes[index]->value = value;
         table->nodes[index]->next = NULL;
